@@ -46,7 +46,7 @@ Plugin 'bling/vim-bufferline'
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
-"filetype plugin on
+filetype plugin on
 "
 " Brief help
 " :PluginList       - lists configured plugins
@@ -65,7 +65,7 @@ endif
 
 " set dark background
 set background=dark
-colorscheme molokai
+colorscheme ir_black
 " set background=light
 
 if has('gui_running')
@@ -105,14 +105,15 @@ set tabstop=4
 set shiftwidth=4
 set smarttab
 set expandtab
+set mouse=n
 
 set autoindent
 set smartindent
 
 set t_Co=256 " use 256 colors
 
-"set number
-"set relativenumber
+set number
+set relativenumber
 set mousehide " hide the mouse while typing
 "set showtabline=0 "Вырубаем черточки на табах
 "set foldcolumn=1
@@ -142,6 +143,14 @@ set virtualedit=all
 set stl=%f\ %m\ %r\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n\ [%b][0x%B]
 set laststatus=2
 
+set langmap=ёйцукенгшщзхъфывапролджэячсмитьбюЁЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,.~QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>
+
+" Don't write backup file if vim is being called by "crontab -e"
+au BufWrite /private/tmp/crontab.* set nowritebackup
+" Don't write backup file if vim is being called by "chpass"
+au BufWrite /private/etc/pw.* set nowritebackup
+highlight LineNr ctermfg=grey
+
 " Don't update the display while executing macros
 set lazyredraw
 
@@ -157,7 +166,7 @@ set wildmenu
 set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
 
 " Set the textwidth to be 80 chars
-set textwidth=80
+"set textwidth=80
 
 set nojoinspaces                " Prevents inserting two spaces after punctuation on a join (J)
 
@@ -165,8 +174,9 @@ set splitright                  " Puts new vsplit windows to the right of the cu
 set splitbelow                  " Puts new split windows to the bottom of the current
 
 " for good word wrap
-"set linebreak
-"set showbreak=→
+set wrap
+set linebreak
+set showbreak=→
 
 set grepprg=grep\ -nH\ $*
 
@@ -205,3 +215,5 @@ set grepprg=grep\ -nH\ $*
 if has("gui_macvim")
     set guifont=Menlo\ Regular:h15
 endif
+
+nmap <F3> :NERDTreeToggle<CR>
