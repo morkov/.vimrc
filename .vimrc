@@ -98,14 +98,16 @@ set cursorline          " Highlight current line
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
 set modelines=0
 
+autocmd BufWritePre * :%s/\s\+$//e " Automatically removing all trailing whitespace
+
 "set mouse=a             " Enable mouse usage (all modes)
+set mouse=n
 
 " options for <TAB>
 set tabstop=4
 set shiftwidth=4
 set smarttab
 set expandtab
-set mouse=n
 
 set autoindent
 set smartindent
