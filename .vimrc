@@ -93,7 +93,7 @@ set smartcase           " Do smart case matching
 set incsearch           " Incremental search
 set hlsearch            " Enable search highlighting
 set autowrite           " Automatically save before commands like :next and :make
-set hidden              " Hide buffers when they are abandoned
+" set hidden              " Hide buffers when they are abandoned
 set cursorline          " Highlight current line
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
 set modelines=0
@@ -140,9 +140,20 @@ set virtualedit=all
 "au! BufReadPost,BufWritePost * silent loadview
 "
 "set up a good status line
-"set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
-" %{fugitive#statusline()}
+" set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
+ "%{fugitive#statusline()}
 set stl=%f\ %m\ %r\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n\ [%b][0x%B]
+
+" set statusline=""
+" set statusline +=%1*\ %n\ %*            "buffer number
+" set statusline +=%5*%{&ff}%*            "file format
+" set statusline +=%3*%y%*                "file type
+" set statusline +=%4*\ %<%F%*            "full path
+" set statusline +=%2*%m%*                "modified flag
+" set statusline +=%1*%=%5l%*             "current line
+" set statusline +=%2*/%L%*               "total lines
+" set statusline +=%1*%4v\ %*             "virtual column number
+" set statusline +=%2*0x%04B\ %*          "character under cursor
 set laststatus=2
 
 set langmap=ёйцукенгшщзхъфывапролджэячсмитьбюЁЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,.~QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>
@@ -257,3 +268,21 @@ set backspace=2
 "    endfunction
 "    call InitializeDirectories()
 ""
+
+" to have only one buffer
+" autocmd BufEnter * setlocal bufhidden=delete
+"
+" bufferline"
+let g:bufferline_modified = '*'
+
+"Airline"
+" Enable the list of buffers
+" let g:airline#extensions#tabline#enabled=1
+
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod=':t'
+
+" enable/disable displaying buffers with a single tab
+let g:airline#extensions#tabline#show_buffers = 1
+
+" let g:airline#extensions#tabline#buffer_nr_show = 1
