@@ -29,6 +29,10 @@ Plugin 'ervandew/supertab'
 " Plugin 'LaTeX-Box-Team/LaTeX-Box'
 Plugin 'honza/vim-snippets'
 Plugin 'bling/vim-bufferline'
+Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'google.vim'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-easytags'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
