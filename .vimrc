@@ -69,7 +69,9 @@ endif
 
 " set dark background
 set background=dark
-colorscheme ir_black
+" colorscheme ir_black
+colorscheme my_black
+" colorscheme desert
 " set background=light
 
 if has('gui_running')
